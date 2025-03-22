@@ -28,3 +28,12 @@ button:hover {
     margin: 10px;
     border-radius: 10px;
 }
+.heart {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    font-size: 24px;
+    opacity: 1;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
