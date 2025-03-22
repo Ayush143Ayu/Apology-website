@@ -1,6 +1,7 @@
 
 document.getElementById("apology-btn").addEventListener("click", function() {
-    document.getElementById("message").innerText = "I'm truly sorry, and I hope you can forgive me ❤️";
+    document.getElementById("message").innerText = "I’m deeply sorry for not giving you the attention you deserve and for taking you for granted. I know that by repeating the same mistakes, I’ve hurt you, and I regret every moment that made you feel unappreciated. You are so important to me, and I want you to know that I am committed to making things right. I’m learning from my mistakes and working hard to be more present, attentive, and loving.Your love and kindness mean the world to me, and I promise to cherish you more and show you every day how much you truly matter. Please forgive me, and allow me the chance to prove that I can be the partner you deserve.
+    ❤️";
 });
 // Smooth page fade-in animation
 gsap.from(".container", { opacity: 0, duration: 1.5, y: -50 });
