@@ -33,3 +33,22 @@ function typeLetter() {
     }
 }
 setTimeout(typeLetter, 2000); // Start typing after 2 seconds
+// Play background music when apology button is clicked
+document.getElementById("apology-btn").addEventListener("click", function() {
+    let music = document.getElementById("bg-music");
+    if (music.paused) {
+        music.play();
+    }
+});
+let music = document.getElementById("bg-music");
+let musicButton = document.getElementById("music-toggle");
+
+musicButton.addEventListener("click", function() {
+    if (music.paused) {
+        music.play();
+        musicButton.innerText = "Pause Music";
+    } else {
+        music.pause();
+        musicButton.innerText = "Play Music";
+    }
+});
