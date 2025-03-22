@@ -77,3 +77,13 @@ musicButton.addEventListener("click", function() {
         musicButton.innerText = "Play Music";
     }
 });
+document.addEventListener("DOMContentLoaded", function() {
+    let button = document.getElementById("apology-btn");
+    if (button) {
+        button.addEventListener("click", function() {
+            alert("I’m really sorry, Anshita ❤️");
+        });
+    } else {
+        console.error("Button with ID 'apology-btn' not found!");
+    }
+});
