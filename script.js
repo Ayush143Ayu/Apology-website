@@ -2,16 +2,40 @@
 document.getElementById("apology-btn").addEventListener("click", function() {
     document.getElementById("message").innerText = "I'm truly sorry, and I hope you can forgive me ❤️";
 });
-// Smooth fade-in animation
+// Smooth page fade-in animation
 gsap.from(".container", { opacity: 0, duration: 1.5, y: -50 });
 
-// Button animation on hover
+// Apology button hover effect
 document.getElementById("apology-btn").addEventListener("mouseenter", () => {
     gsap.to("#apology-btn", { scale: 1.1, duration: 0.3 });
 });
 document.getElementById("apology-btn").addEventListener("mouseleave", () => {
     gsap.to("#apology-btn", { scale: 1, duration: 0.3 });
 });
+
+// Floating hearts animation
+function createHeart() {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    document.body.appendChild(heart);
+
+    let startX = Math.random() * window.innerWidth;
+    let endX = startX + (Math.random() * 100 - 50);
+    let duration = Math.random() * 3 + 2;
+
+    gsap.to(heart, {
+        y: -200,
+        x: endX,
+        opacity: 0,
+        duration: duration,
+        ease: "power1.out",
+        onComplete: () => heart.remove()
+    });
+}
+
+// Generate floating hearts every second
+setInterval(createHeart, 1000);
 function checkAnswer(answer) {
     let resultText = document.getElementById("quiz-result");
     if (answer) {
