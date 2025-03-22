@@ -48,18 +48,37 @@ document.addEventListener("DOMContentLoaded", function() {
     setInterval(createHeart, 1000);
 
     // Mini-game quiz
+    document.addEventListener("DOMContentLoaded", function() {
+    console.log("JavaScript Loaded Successfully!");
+
     function checkAnswer(answer) {
         let resultText = document.getElementById("quiz-result");
-        if (resultText) {
-            if (answer) {
-                resultText.innerHTML = "Yay! I love you too! ❤️";
-                gsap.to("#quiz-result", { scale: 1.2, color: "green", duration: 0.5 });
-            } else {
-                resultText.innerHTML = "Nope! Try again 😉";
-                gsap.to("#quiz-result", { scale: 1.2, color: "red", duration: 0.5 });
-            }
+        if (!resultText) {
+            console.error("Error: quiz-result element not found!");
+            return;
+        }
+
+        if (answer) {
+            resultText.innerHTML = "Yay! I love you too! ❤️";
+            gsap.to("#quiz-result", { scale: 1.2, color: "green", duration: 0.5 });
+        } else {
+            resultText.innerHTML = "Nope! Try again 😉";
+            gsap.to("#quiz-result", { scale: 1.2, color: "red", duration: 0.5 });
         }
     }
+
+    // Attach event listeners dynamically (in case buttons weren't recognized before)
+    let yesButton = document.querySelector("button[onclick='checkAnswer(true)']");
+    let noButton = document.querySelector("button[onclick='checkAnswer(false)']");
+
+    if (yesButton && noButton) {
+        console.log("Quiz buttons found!");
+        yesButton.addEventListener("click", function() { checkAnswer(true); });
+        noButton.addEventListener("click", function() { checkAnswer(false); });
+    } else {
+        console.error("Error: Quiz buttons not found!");
+    }
+});
 
     // Love letter typing effect
     let letterText = "Dear love, I just want to say how much you mean to me. Every moment with you is special, and I’m truly sorry for my mistake. I promise to make things better. You are my happiness. ❤️";
